@@ -5,14 +5,14 @@ Created on Tue Jan 16 20:16:00 2020
 @author: Travis Shands 
 """
 
-import Dominion
+from dominion import Dominion
 from dominion import testUtility
 
 # Get player names
 player_names = testUtility.GetPlayers()
 
 # number of curses and victory cards
-nV, nC = testUtility.SetNumVC(player_names)
+nC, nV = testUtility.SetNumVC(player_names)
 
 # Define box
 box = testUtility.GetBoxes(nV)
@@ -27,24 +27,24 @@ testUtility.DefaultSupply(supply, player_names, nV, nC)
 # initialize the trash
 trash = []
 
-# Costruct the Player objectsSmithy
+# Construct the Player objects
 players = []
 testUtility.MakePlayers(players, player_names)
 
 # Play the game
-turn  = 0
+turn = 0
 while not Dominion.gameover(supply):
-    turn += 1    
+    turn += 1
     print("\r")    
     for value in supply_order:
-        print (value)
+        print(value)
         for stack in supply_order[value]:
             if stack in supply:
-                print (stack, len(supply[stack]))
+                print(stack, len(supply[stack]))
     print("\r")
     for player in players:
-        print (player.name,player.calcpoints())
-    print ("\rStart of turn " + str(turn))    
+        print(player.name,player.calcpoints())
+    print("\rStart of turn " + str(turn))
     for player in players:
         if not Dominion.gameover(supply):
             print("\r")

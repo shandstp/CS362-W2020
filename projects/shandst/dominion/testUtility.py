@@ -1,4 +1,4 @@
-import Dominion
+from dominion import Dominion
 import random
 from collections import defaultdict
 

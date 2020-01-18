@@ -5,7 +5,7 @@ Created on Tue Jan 16 20:16:00 2020
 @author: Travis Shands
 """
 
-import Dominion
+from dominion import Dominion
 from dominion import testUtility
 
 # Get player names
@@ -23,11 +23,11 @@ boxlist, supply = testUtility.GetSupplyCards(box)
 
 # The supply always has these cards
 testUtility.DefaultSupply(supply, player_names, nV, nC)
-
+supply["Province"] = [Dominion.Estate()] * nV
 # initialize the trash
 trash = []
 
-# Costruct the Player objectsSmithy
+# Construct the Player objects
 players = []
 testUtility.MakePlayers(players, player_names)
 
